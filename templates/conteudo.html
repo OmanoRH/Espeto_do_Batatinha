@@ -1,110 +1,89 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-    </head>
-    <body>
-        {% extends 'base.html' %}
-        {% block content %}
-        <!-- Conteúdo aqui -->
-        <div class="container">
-            <h1>Fundamentos da Programação em Python</h1>
-          
-            <!-- Estruturas de Seleção -->
-            <section>
-              <h2>Estruturas de Seleção (if / elif / else)</h2>
-              <p>
-                As estruturas de seleção permitem que o programa tome decisões com base em condições. Em Python, usamos <code>if</code>, <code>elif</code> (senão se) e <code>else</code> (senão).
-              </p>
-              <pre><code class="language-python">
-          idade = int(input("Digite sua idade: "))
-          if idade >= 18:
-              print("Você é maior de idade.")
-          else:
-              print("Você é menor de idade.")
-              </code></pre>
-            </section>
-          
-            <!-- Estruturas de Repetição -->
-            <section>
-              <h2>Estruturas de Repetição (for / while)</h2>
-              <p>
-                Utilizadas para repetir blocos de código. O <code>for</code> é usado em sequências e o <code>while</code> enquanto uma condição for verdadeira.
-              </p>
-              <pre><code class="language-python">
-          # Exemplo com for
-          for i in range(5):
-              print("Número:", i)
-          
-          # Exemplo com while
-          contador = 0
-          while contador < 5:
-              print("Contador:", contador)
-              contador += 1
-              </code></pre>
-            </section>
-          
-            <!-- Vetores e Matrizes -->
-            <section>
-              <h2>Vetores e Matrizes (Listas e Listas Aninhadas)</h2>
-              <p>
-                Listas armazenam vários valores em uma única variável. Matrizes são listas dentro de listas.
-              </p>
-              <pre><code class="language-python">
-          # Lista (vetor)
-          frutas = ["maçã", "banana", "laranja"]
-          print(frutas[1])  # Saída: banana
-          
-          # Lista aninhada (matriz)
-          notas = [[7, 8, 9], [6, 7, 10]]
-          print(notas[1][2])  # Saída: 10
-              </code></pre>
-            </section>
-          
-            <!-- Funções e Procedimentos -->
-            <section>
-              <h2>Funções e Procedimentos</h2>
-              <p>
-                Funções são blocos de código reutilizáveis. Elas podem retornar valores (<code>return</code>) ou apenas executar ações.
-              </p>
-              <pre><code class="language-python">
-          # Função com retorno
-          def somar(a, b):
-              return a + b
-          
-          resultado = somar(3, 4)
-          print("Soma:", resultado)
-          
-          # Procedimento (sem retorno)
-          def saudacao(nome):
-              print(f"Olá, {nome}!")
-          
-          saudacao("Lucas")
-              </code></pre>
-            </section>
-          
-            <!-- Tratamento de Exceções -->
-            <section>
-              <h2>Tratamento de Exceções (try / except)</h2>
-              <p>
-                Trata erros que podem ocorrer durante a execução do programa, evitando falhas inesperadas.
-              </p>
-              <pre><code class="language-python">
-          try:
-              numero = int(input("Digite um número inteiro: "))
-              resultado = 10 / numero
-              print("Resultado:", resultado)
-          except ZeroDivisionError:
-              print("Erro: Divisão por zero não é permitida.")
-          except ValueError:
-              print("Erro: Você deve digitar um número inteiro.")
-              </code></pre>
-            </section>
-          </div>
-    
-    
-        {% endblock %}
-    </body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+  <h1 class="mb-4">Fundamentos da Programação em Python</h1>
+
+  <!-- Estruturas de Seleção -->
+  <section class="mb-5">
+    <h2>Estruturas de Seleção (if / elif / else)</h2>
+    <p>As estruturas de seleção permitem que o programa tome decisões com base em condições. Em Python, usamos <code>if</code>, <code>elif</code> (senão se) e <code>else</code> (senão).</p>
+    <pre><code class="language-python">
+idade = int(input("Digite sua idade: "))
+if idade >= 18:
+    print("Você é maior de idade.")
+else:
+    print("Você é menor de idade.")
+    </code></pre>
+  </section>
+
+  <!-- Estruturas de Repetição -->
+  <section class="mb-5">
+    <h2>Estruturas de Repetição (for / while)</h2>
+    <p>Utilizadas para repetir blocos de código. O <code>for</code> é usado em sequências e o <code>while</code> enquanto uma condição for verdadeira.</p>
+    <pre><code class="language-python">
+# Exemplo com for
+for i in range(5):
+    print("Número:", i)
+
+# Exemplo com while
+contador = 0
+while contador < 5:
+    print("Contador:", contador)
+    contador += 1
+    </code></pre>
+  </section>
+
+  <!-- Vetores e Matrizes -->
+  <section class="mb-5">
+    <h2>Vetores e Matrizes (Listas e Listas Aninhadas)</h2>
+    <p>Listas armazenam vários valores em uma única variável. Matrizes são listas dentro de listas.</p>
+    <pre><code class="language-python">
+# Lista (vetor)
+frutas = ["maçã", "banana", "laranja"]
+print(frutas[1])  # Saída: banana
+
+# Lista aninhada (matriz)
+notas = [[7, 8, 9], [6, 7, 10]]
+print(notas[1][2])  # Saída: 10
+    </code></pre>
+  </section>
+
+  <!-- Funções e Procedimentos -->
+  <section class="mb-5">
+    <h2>Funções e Procedimentos</h2>
+    <p>Funções são blocos de código reutilizáveis. Elas podem retornar valores (<code>return</code>) ou apenas executar ações.</p>
+    <pre><code class="language-python">
+# Função com retorno
+def somar(a, b):
+    return a + b
+
+resultado = somar(3, 4)
+print("Soma:", resultado)
+
+# Procedimento (sem retorno)
+def saudacao(nome):
+    print(f"Olá, {nome}!")
+
+saudacao("Lucas")
+    </code></pre>
+  </section>
+
+  <!-- Tratamento de Exceções -->
+  <section class="mb-5">
+    <h2>Tratamento de Exceções (try / except)</h2>
+    <p>Trata erros que podem ocorrer durante a execução do programa, evitando falhas inesperadas.</p>
+    <pre><code class="language-python">
+try:
+    numero = int(input("Digite um número inteiro: "))
+    resultado = 10 / numero
+    print("Resultado:", resultado)
+except ZeroDivisionError:
+    print("Erro: Divisão por zero não é permitida.")
+except ValueError:
+    print("Erro: Você deve digitar um número inteiro.")
+    </code></pre>
+  </section>
+</div>
+
+{% endblock %}

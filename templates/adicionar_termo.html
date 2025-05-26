@@ -1,0 +1,11 @@
+<h2>Adicionar Novo Termo</h2>
+<form method="POST">
+  <label for="termo">Termo:</label><br>
+  <input type="text" id="termo" name="termo" required><br><br>
+
+  <label for="definicao">Definição:</label><br>
+  <textarea id="definicao" name="definicao" rows="4" cols="50" required></textarea><br><br>
+
+  <button type="submit">Salvar</button>
+</form>
+<a href="{{ url_for('dicionario') }}">← Voltar</a>

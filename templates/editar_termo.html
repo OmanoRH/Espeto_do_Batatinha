@@ -1,0 +1,8 @@
+<h2>Editar Termo: {{ termo }}</h2>
+<form method="POST">
+  <label for="definicao">Nova Definição:</label><br>
+  <textarea id="definicao" name="definicao" rows="4" cols="50" required>{{ definicao }}</textarea><br><br>
+
+  <button type="submit">Atualizar</button>
+</form>
+<a href="{{ url_for('dicionario') }}">← Voltar</a>

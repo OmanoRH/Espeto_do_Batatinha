@@ -1,0 +1,12 @@
+<h2>Dicionário de Termos</h2>
+<a href="{{ url_for('adicionar') }}">➕ Adicionar novo termo</a>
+<ul>
+  {% for termo, definicao in termos %}
+    <li>
+      <strong>{{ termo }}</strong>: {{ definicao }}
+      [<a href="{{ url_for('editar', termo=termo) }}">Editar</a>]
+      [<a href="{{ url_for('excluir', termo=termo) }}">Excluir</a>]
+    </li>
+  {% else %}
+    <p>Nenhum termo cadastrado ainda.</p>
+  {% endfor %}

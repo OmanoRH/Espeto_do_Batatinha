@@ -15,10 +15,26 @@ def index():
 def sobre():
     return render_template("sobre.html")
 
-# Página com os conteúdos de Python (estruturação, repetição, etc.)
-@app.route("/conteudo")
-def conteudo():
-    return render_template("conteudo.html")
+# Páginas individuais dos conteúdos Python
+@app.route("/selecao")
+def selecao():
+    return render_template("selecao.html")
+
+@app.route("/repeticao")
+def repeticao():
+    return render_template("repeticao.html")
+
+@app.route("/vetores")
+def vetores():
+    return render_template("vetores_matrizes.html")
+
+@app.route("/funcoes")
+def funcoes():
+    return render_template("funcoes_procedimentos.html")
+
+@app.route("/excecoes")
+def excecoes():
+    return render_template("excecoes.html")
 
 # Página do dicionário com listagem de termos
 @app.route("/dicionario")
@@ -30,10 +46,10 @@ def dicionario():
                 termo, definicao = linha.strip().split("=")
                 termos.append((termo, definicao))
     except FileNotFoundError:
-        pass  # Arquivo ainda não existe
+        pass
     return render_template("dicionario.html", termos=termos)
 
-# Página para adicionar um novo termo ao dicionário
+# Adicionar termo
 @app.route("/adicionar", methods=["GET", "POST"])
 def adicionar():
     if request.method == "POST":
@@ -44,7 +60,7 @@ def adicionar():
         return redirect(url_for("dicionario"))
     return render_template("adicionar_termo.html")
 
-# Página para editar um termo existente
+# Editar termo
 @app.route("/editar/<termo>", methods=["GET", "POST"])
 def editar(termo):
     termos = []
@@ -66,7 +82,7 @@ def editar(termo):
     definicao_atual = dict(termos).get(termo, "")
     return render_template("editar_termo.html", termo=termo, definicao=definicao_atual)
 
-# Excluir um termo
+# Excluir termo
 @app.route("/excluir/<termo>")
 def excluir(termo):
     termos = []
@@ -82,13 +98,12 @@ def excluir(termo):
 
     return redirect(url_for("dicionario"))
 
-# Página de dúvidas com integração Gemini (placeholder por enquanto)
+# Página de perguntas (IA futura)
 @app.route("/perguntas", methods=["GET", "POST"])
 def perguntas():
     resposta = ""
     if request.method == "POST":
         pergunta = request.form["pergunta"]
-        # Aqui você vai futuramente integrar com a API do Gemini
         resposta = f"Simulação de resposta da IA para: {pergunta}"
     return render_template("perguntas.html", resposta=resposta)
 

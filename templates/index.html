@@ -1,16 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    {% extends 'base.html' %}
-    {% block content %}
-    <!-- Conteúdo aqui -->
+{% extends "partials/base.html" %}
 
-    
-    {% endblock %}
-</body>
-</html>
+{% block title %}Início{% endblock %}
+
+{% block content %}
+  <h1>Bem-vindo ao Projeto Final</h1>
+  <p>Este site apresenta os fundamentos da programação em Python.</p>
+  <a href="{{ url_for('conteudo') }}">→ Acessar Conteúdos</a>
+{% endblock %}

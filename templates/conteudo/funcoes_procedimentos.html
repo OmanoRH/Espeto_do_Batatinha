@@ -1,0 +1,22 @@
+{% extends "partials/base.html" %}
+{% block title %}Funções e Procedimentos{% endblock %}
+{% block content %}
+<h2>Funções e Procedimentos</h2>
+<p>Funções encapsulam blocos de código. Elas podem receber parâmetros e retornar valores. Procedimentos são funções sem retorno.</p>
+
+<pre><code>
+# Função com retorno
+def soma(a, b):
+    return a + b
+
+print(soma(5, 3))  # 8
+
+# Procedimento
+def mostrar_mensagem():
+    print("Bem-vindo ao sistema!")
+
+mostrar_mensagem()
+</code></pre>
+
+<a href="{{ url_for('index') }}">← Voltar à Página Inicial</a>
+{% endblock %}

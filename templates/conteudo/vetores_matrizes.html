@@ -1,0 +1,18 @@
+{% extends "partials/base.html" %}
+{% block title %}Vetores e Matrizes{% endblock %}
+{% block content %}
+<h2>Vetores e Matrizes (Listas em Python)</h2>
+<p>Vetores (listas) armazenam elementos sequenciais. Matrizes são listas de listas, úteis para representar tabelas.</p>
+
+<pre><code>
+# Vetor
+nomes = ["Ana", "Bruno", "Carlos"]
+print(nomes[0])  # Ana
+
+# Matriz
+notas = [[7.5, 8.0], [6.0, 9.5]]
+print(notas[1][1])  # 9.5
+</code></pre>
+
+<a href="{{ url_for('index') }}">← Voltar à Página Inicial</a>
+{% endblock %}

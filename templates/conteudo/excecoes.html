@@ -1,0 +1,21 @@
+{% extends "partials/base.html" %}
+{% block title %}Tratamento de Exceções{% endblock %}
+{% block content %}
+<h2>Tratamento de Exceções (try / except)</h2>
+<p>Usado para lidar com erros em tempo de execução, como divisão por zero ou entrada inválida.</p>
+
+<pre><code>
+try:
+    numero = int(input("Digite um número: "))
+    resultado = 10 / numero
+    print("Resultado:", resultado)
+except ZeroDivisionError:
+    print("Erro: divisão por zero.")
+except ValueError:
+    print("Erro: entrada inválida.")
+finally:
+    print("Fim da execução.")
+</code></pre>
+
+<a href="{{ url_for('index') }}">← Voltar à Página Inicial</a>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "partials/base.html" %}
+{% block title %}Estruturas de Repetição{% endblock %}
+{% block content %}
+<h2>Estruturas de Repetição (for / while)</h2>
+<p>Usadas para repetir blocos de código. O <code>for</code> é usado com sequências, e o <code>while</code> com condições lógicas.</p>
+
+<pre><code>
+# Usando for
+for i in range(5):
+    print("Contando:", i)
+
+# Usando while
+contador = 0
+while contador < 5:
+    print("Contador:", contador)
+    contador += 1
+</code></pre>
+
+<a href="{{ url_for('index') }}">← Voltar à Página Inicial</a>
+{% endblock %}

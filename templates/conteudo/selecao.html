@@ -1,0 +1,18 @@
+{% extends "partials/base.html" %}
+{% block title %}Estruturas de Seleção{% endblock %}
+{% block content %}
+<h2>Estruturas de Seleção (if / elif / else)</h2>
+<p>Permitem executar blocos diferentes de código com base em condições. Muito usadas para tomada de decisões.</p>
+
+<pre><code>
+idade = int(input("Digite sua idade: "))
+if idade >= 18:
+    print("Você é maior de idade.")
+elif idade == 17:
+    print("Você fará 18 em breve!")
+else:
+    print("Você é menor de idade.")
+</code></pre>
+
+<a href="{{ url_for('index') }}">← Voltar à Página Inicial</a>
+{% endblock %}

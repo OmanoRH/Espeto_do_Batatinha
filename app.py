@@ -18,23 +18,23 @@ def sobre():
 # Páginas individuais dos conteúdos Python
 @app.route("/selecao")
 def selecao():
-    return render_template("selecao.html")
+    return render_template("conteudo/selecao.html")
 
 @app.route("/repeticao")
 def repeticao():
-    return render_template("repeticao.html")
+    return render_template("conteudo/repeticao.html")
 
 @app.route("/vetores")
 def vetores():
-    return render_template("vetores_matrizes.html")
+    return render_template("conteudo/vetores_matrizes.html")
 
 @app.route("/funcoes")
 def funcoes():
-    return render_template("funcoes_procedimentos.html")
+    return render_template("conteudo/funcoes_procedimentos.html")
 
 @app.route("/excecoes")
 def excecoes():
-    return render_template("excecoes.html")
+    return render_template("conteudo/excecoes.html")
 
 # Página do dicionário com listagem de termos
 @app.route("/dicionario")

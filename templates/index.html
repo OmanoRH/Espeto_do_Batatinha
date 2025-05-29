@@ -1,9 +1,68 @@
 {% extends "base.html" %}
-
-{% block title %}Início{% endblock %}
-
 {% block content %}
-  <h1>Bem-vindo ao Projeto Final</h1>
-  <p>Este site apresenta os fundamentos da programação em Python.</p>
-  <a href="{{ url_for('conteudo') }}">→ Acessar Conteúdos</a>
+
+<div class="container text-center py-5">
+  <h1 class="mb-4">Bem-vindo ao Projeto Final</h1>
+  <p class="lead">
+    Este site apresenta os fundamentos da <strong>programação em Python</strong>, com foco na <strong>lógica de programação</strong>.
+    Python é uma linguagem moderna, poderosa e fácil de aprender. Aqui você encontrará explicações práticas sobre estruturas fundamentais da linguagem.
+  </p>
+</div>
+
+<div class="container py-4">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+
+    <div class="col">
+      <div class="card h-100 border-primary">
+        <div class="card-body text-center">
+          <h5 class="card-title">Seleção</h5>
+          <p class="card-text">Condicionais como if, else e elif.</p>
+          <a href="{{ url_for('selecao') }}" class="btn btn-primary">Acessar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100 border-primary">
+        <div class="card-body text-center">
+          <h5 class="card-title">Repetição</h5>
+          <p class="card-text">Laços com while e for.</p>
+          <a href="{{ url_for('repeticao') }}" class="btn btn-primary">Acessar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100 border-primary">
+        <div class="card-body text-center">
+          <h5 class="card-title">Vetores e Matrizes</h5>
+          <p class="card-text">Listas e listas aninhadas em Python.</p>
+          <a href="{{ url_for('vetores') }}" class="btn btn-primary">Acessar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100 border-primary">
+        <div class="card-body text-center">
+          <h5 class="card-title">Funções</h5>
+          <p class="card-text">Blocos de código reutilizáveis com parâmetros e retorno.</p>
+          <a href="{{ url_for('funcoes') }}" class="btn btn-primary">Acessar</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-100 border-primary">
+        <div class="card-body text-center">
+          <h5 class="card-title">Exceções</h5>
+          <p class="card-text">Tratamento de erros com try e except.</p>
+          <a href="{{ url_for('excecoes') }}" class="btn btn-primary">Acessar</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 {% endblock %}

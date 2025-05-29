@@ -1,5 +1,20 @@
 from flask import Flask, render_template, request, redirect, url_for
+from dotenv import load_dotenv
+import os
+import google.generativeai as genai
 
+# Carrega variáveis de ambiente do .env
+load_dotenv()
+
+# Configura a chave da API Gemini a partir do .env
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+genai.configure(api_key=GEMINI_API_KEY)
+
+# Inicializa o modelo Gemini
+modelo = genai.GenerativeModel("gemini-pro")
+chat = modelo.start_chat()
+
+# Flask app
 app = Flask(__name__)
 
 # Caminho do arquivo que armazenará os termos do dicionário
@@ -43,8 +58,10 @@ def dicionario():
     try:
         with open(CAMINHO_TERMO, "r", encoding="utf-8") as f:
             for linha in f:
-                termo, definicao = linha.strip().split("=")
-                termos.append((termo, definicao))
+                linha = linha.strip()
+                if "=" in linha:
+                    termo, definicao = linha.split("=", 1)
+                    termos.append((termo, definicao))
     except FileNotFoundError:
         pass
     return render_template("dicionario.html", termos=termos)
@@ -66,8 +83,9 @@ def editar(termo):
     termos = []
     with open(CAMINHO_TERMO, "r", encoding="utf-8") as f:
         for linha in f:
-            t, d = linha.strip().split("=")
-            termos.append((t, d))
+            if "=" in linha:
+                t, d = linha.strip().split("=", 1)
+                termos.append((t, d))
 
     if request.method == "POST":
         nova_definicao = request.form["definicao"]
@@ -88,9 +106,10 @@ def excluir(termo):
     termos = []
     with open(CAMINHO_TERMO, "r", encoding="utf-8") as f:
         for linha in f:
-            t, d = linha.strip().split("=")
-            if t != termo:
-                termos.append((t, d))
+            if "=" in linha:
+                t, d = linha.strip().split("=", 1)
+                if t != termo:
+                    termos.append((t, d))
 
     with open(CAMINHO_TERMO, "w", encoding="utf-8") as f:
         for t, d in termos:
@@ -98,13 +117,16 @@ def excluir(termo):
 
     return redirect(url_for("dicionario"))
 
-# Página de perguntas (IA futura)
+# Página de perguntas com integração do Gemini
 @app.route("/perguntas", methods=["GET", "POST"])
 def perguntas():
     resposta = ""
     if request.method == "POST":
         pergunta = request.form["pergunta"]
-        resposta = f"Simulação de resposta da IA para: {pergunta}"
+        try:
+            resposta = chat.send_message(pergunta).text
+        except Exception as e:
+            resposta = f"Erro ao gerar resposta: {e}"
     return render_template("perguntas.html", resposta=resposta)
 
 # Roda o app

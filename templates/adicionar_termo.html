@@ -1,11 +1,23 @@
-<h2>Adicionar Novo Termo</h2>
-<form method="POST">
-  <label for="termo">Termo:</label><br>
-  <input type="text" id="termo" name="termo" required><br><br>
+{% extends "base.html" %}
+{% block title %}Adicionar Termo{% endblock %}
 
-  <label for="definicao">Definição:</label><br>
-  <textarea id="definicao" name="definicao" rows="4" cols="50" required></textarea><br><br>
+{% block content %}
+<div class="container py-4">
+  <h2 class="mb-4">➕ Adicionar Novo Termo</h2>
 
-  <button type="submit">Salvar</button>
-</form>
-<a href="/templates/dicionario.html">← Voltar</a>
+  <form action="{{ url_for('adicionar') }}" method="post">
+    <div class="mb-3">
+      <label for="termo" class="form-label">Termo:</label>
+      <input type="text" class="form-control" id="termo" name="termo" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="definicao" class="form-label">Definição:</label>
+      <textarea class="form-control" id="definicao" name="definicao" rows="4" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-success">Salvar</button>
+    <a href="{{ url_for('dicionario') }}" class="btn btn-outline-secondary ms-2">← Voltar</a>
+  </form>
+</div>
+{% endblock %}

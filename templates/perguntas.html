@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Perguntas com IA{% endblock %}
+
+{% block content %}
+<div class="container py-4">
+  <h2 class="mb-4">🤖 Faça uma pergunta sobre programação</h2>
+
+  <form method="POST">
+    <div class="mb-3">
+      <textarea name="pergunta" class="form-control" rows="3" placeholder="Ex: O que é uma função em Python?" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Perguntar</button>
+  </form>
+
+  {% if resposta %}
+    <div class="mt-4 alert alert-info">
+      <h5>Resposta da IA:</h5>
+      <p>{{ resposta }}</p>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

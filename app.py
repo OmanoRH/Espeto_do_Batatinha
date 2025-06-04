@@ -11,7 +11,7 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 genai.configure(api_key=GEMINI_API_KEY)
 
 # Inicializa o modelo Gemini
-modelo = genai.GenerativeModel("gemini-pro")
+modelo = genai.GenerativeModel("gemini-2.0-flash")
 chat = modelo.start_chat()
 
 # Flask app
